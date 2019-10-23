@@ -1,10 +1,20 @@
-'use strict';
+"use strict";
 
 //Complete this algo
-const isLoop = (linkedlist) => {
+const isLoop = linkedlist => {
+	let tort = linkedlist.head;
+	let hare = linkedlist.head;
 
+	while (tort.next) {
+		if (hare.next) {
+			tort = tort.next;
+			hare = hare.next.next;
+			if (tort === hare) return true;
+		} else {
+			return false;
+		}
+	}
 };
-
 
 /*
 EXTRA CREDIT:
@@ -14,4 +24,4 @@ This function should return the Node value the loop begins at
 Remember to write some test specs too!
 
 */
-module.exports = isLoop
+module.exports = isLoop;
